@@ -1,0 +1,47 @@
+﻿
+@model List<AppUser>
+
+@{
+    ViewBag.Title = "Kullanıcı Listesi";
+}
+
+<h2>Kullanıcı Listesi</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Kullanıcı Adı</th>
+        <th>Mail Adresi</th>
+        <th>Cinsiyeti</th>
+        <th>Doğum Tarihi</th>
+        <th>Profil Resmi</th>
+        <th>Eklenme Tarihi</th>
+        <th>İşlem</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td>@item.SurName</td>
+            <td>@item.UserName</td>
+            <td>@item.EmailAddress</td>
+            <td>@item.Gender</td>
+            <td>@item.BirthDate</td>
+            <td>
+                <img src="@item.ProfilePicturePath" width="100" height="100"/>
+            </td>
+            <td>@item.AddedDate</td>
+            <td>
+                <a href="/Admin/Appuser/Edit/@item.ID">Düzenle</a>|
+
+                <a href="/Admin/Appuser/Delete/@item.ID">Sil</a>
+            </td>
+        </tr>
+    }
+
+</table>

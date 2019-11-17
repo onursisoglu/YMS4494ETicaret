@@ -1,0 +1,63 @@
+﻿
+@model AppUser
+
+@{
+    ViewBag.Title = "Kullanıcı Ekleme";
+}
+
+<h2>Kullanıcı Ekleme</h2>
+
+
+
+@using (Html.BeginForm("Add", "AppUser", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.SurName)
+        @Html.TextBoxFor(x => x.SurName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserName)
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password)
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", @type = "password" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.EmailAddress)
+        @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.BirthDate)
+        @Html.TextBoxFor(x => x.BirthDate, new { @class = "form-control", @type = "date" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ProfilePicturePath)
+        <input type="file" name="image" class="form-control" />
+    </div>
+
+
+
+    <div class="form-group">
+        <label>Role Seçiniz : </label>
+        <select class="form-control" name="Role">
+            <option value="Admin">Admin</option>
+            <option value="Kullanici">Kullanıcı</option>
+        </select>
+    </div>
+
+    <input type="submit" value="Kaydet" class="btn btn-success" />
+}
+

@@ -9,6 +9,9 @@ namespace ECommerce.UI.Web.Areas.Admin.Models.VM
 {
     public class ProductVM
     {
+        public Guid ID { get; set; }
+
+
         [Required(ErrorMessage ="Ürün Adı Boş Geçilemez")]
         [MinLength(3,ErrorMessage ="Ürün Adı Minimum 3 karakter olmalıdır. Daha az girilemez.")]
         [Display(Name ="Ürün Adı")]

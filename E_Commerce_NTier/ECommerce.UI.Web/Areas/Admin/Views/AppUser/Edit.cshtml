@@ -1,0 +1,64 @@
+﻿@model AppUser
+@{
+    ViewBag.Title = "Kullanıcı Güncelleme";
+}
+
+<h2>Kullanıcı Güncelleme</h2>
+
+
+@using (Html.BeginForm("Edit", "AppUser", FormMethod.Post, new { area = "Admin", enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.SurName)
+        @Html.TextBoxFor(x => x.SurName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UserName)
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Password)
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control",@type="password" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.EmailAddress)
+        @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.BirthDate)
+        @Html.TextBox("BirthDate", Model.BirthDate, "{0:yyyy-MM-dd}", new { @style = "width:100%",@class="form-control", type = "date" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.ProfilePicturePath)
+        <input type="file" name="image" class="form-control" />
+    </div>
+
+
+
+    <div class="form-group">
+        <label>Role Seçiniz : </label>
+        <select class="form-control" name="Role">
+            <option @if (Model.Role == "Admin") { @Html.Raw("selected") } value="Admin">Admin</option>
+            <option @if (Model.Role == "Kullanici") { @Html.Raw("selected") } value="Kullanici">Kullanıcı</option>
+        </select>
+
+    </div>
+
+    <input type="hidden" value="@Model.ID" name="ID" />
+
+
+    <input type="submit" value="Kaydet" class="btn btn-success" />
+}
+

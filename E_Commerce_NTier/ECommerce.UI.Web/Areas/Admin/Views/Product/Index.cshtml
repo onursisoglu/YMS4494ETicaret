@@ -65,9 +65,15 @@
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @*@Html.ActionLink("Düzenle","Edit","Product",new { area="Admin",id=item.ID}) |*@
+
+            <a href="/Admin/Product/Edit/@item.ID">Düzenle</a> |
+
+            <a href="/Admin/Product/Delete/@item.ID">Sil</a>
+
+            @*<a href="@Url.Action("Edit","Product",new {id=item.ID,area="Admin" })">Düzenle</a>*@
+
+            @*@Html.ActionLink("Sil", "Delete","Product",null, new {area="Admin", id=item.ID })*@
         </td>
     </tr>
 }

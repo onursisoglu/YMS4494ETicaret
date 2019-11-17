@@ -13,6 +13,8 @@ namespace ECommerce.Data.Entities
 
         public string ShippingAddress { get; set; }
 
+        public bool IsConfirmed { get; set; }
+
 
         // İlişkili tablolar.
 
