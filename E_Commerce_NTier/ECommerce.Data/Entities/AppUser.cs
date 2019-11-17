@@ -8,6 +8,7 @@ namespace ECommerce.Data.Entities
 {
    public class AppUser:BaseEntity
     {
+        
         public string Name { get; set; }
         public string SurName { get; set; }
         public string ProfilePicturePath { get; set; }

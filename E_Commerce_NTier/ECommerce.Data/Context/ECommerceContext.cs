@@ -19,7 +19,6 @@ namespace ECommerce.Data.Context
 
         
         public DbSet<Category> Categories { get; set; }
-
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }

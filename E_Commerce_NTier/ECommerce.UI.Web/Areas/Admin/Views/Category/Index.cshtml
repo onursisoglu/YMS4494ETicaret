@@ -2,6 +2,31 @@
 @{
     ViewBag.Title = "Index";
 }
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
 
+@section scriptlerim
+{
+<script src="~/Scripts/gridmvc.js"></script>
+}
+
+
+@model List<Category>
 <h2>Index</h2>
+
+
+@Html.Grid(Model).Columns(c =>
+{
+    c.Add(m => m.ID).Titled("Kategori ID").Sortable(true);
+    c.Add(m => m.Name).Titled("Kategori Adı").Sortable(true).Filterable(true);
+    c.Add(m => m.Description).Titled("Kategori Açıklama").Sortable(true).Filterable(true);
+    c.Add(m => m.AddedDate).Titled("Eklenme Tarihi").Sortable(true).Filterable(true);
+    c.Add().Titled("İşlem").Encoded(false).Sanitized(false).RenderValueAs(d => new HtmlString("<a href='/Admin/Category/Edit/"+d.ID+"'>Güncelle</a>"));
+    c.Add().Titled("İşlem").Encoded(false).Sanitized(false).RenderValueAs(d => new HtmlString("<a href='/Admin/Category/Delete/" + d.ID + "'>Sil</a>"));
+}).WithPaging(10)
+
+
+
+
+
+
 

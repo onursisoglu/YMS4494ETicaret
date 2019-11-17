@@ -1,0 +1,33 @@
+﻿@model List<SubCategory>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<link href="~/Content/Gridmvc.css" rel="stylesheet" />
+
+@section scriptlerim
+{
+    <script src="~/Scripts/gridmvc.js"></script>
+}
+
+
+@Html.Grid(Model).Columns(c =>
+{
+    c.Add(m => m.ID).Titled("Alt Kategori ID").Sortable(true);
+    c.Add(m => m.Name).Titled("Alt Kategori Adı").Sortable(true).Filterable(true);
+    c.Add(m => m.Description).Titled("Alt Kategori Açıklama").Sortable(true).Filterable(true);
+    c.Add(m => m.AddedDate).Titled("Eklenme Tarihi").Sortable(true).Filterable(true);
+    c.Add().Titled("İşlem").Encoded(false).Sanitized(false).RenderValueAs(d => new HtmlString("<a href='/Admin/SubCategory/Edit/"+d.ID+"'>Güncelle</a>"));
+    c.Add().Titled("İşlem").Encoded(false).Sanitized(false).RenderValueAs(d => new HtmlString("<a href='/Admin/SubCategory/Delete/" + d.ID + "'>Sil</a>"));
+}).WithPaging(10)
+
+
+
+
+
+
+
+
+

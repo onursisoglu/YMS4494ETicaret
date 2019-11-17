@@ -1,0 +1,30 @@
+﻿@model Category
+
+    @{
+        ViewBag.Title = "Edit";
+    }
+
+    <h2>Edit</h2>
+
+
+
+    <form action="/Admin/Category/Edit" method="post">
+
+        <div class="form-group">
+            <label>Kategori Adı :</label>
+            <input type="text" class="form-control" value="@Model.Name" name="Name" />
+        </div>
+
+        <div class="form-group">
+            <label>Kategori Açıklama :</label>
+            <input type="text" class="form-control" value="@Model.Description" name="Description" />
+        </div>
+
+        <input type="hidden" value="@Model.ID" name="ID"/>
+
+        <input type="submit" value="Güncelle" class="btn btn-success" />
+
+    </form>
+
+
+

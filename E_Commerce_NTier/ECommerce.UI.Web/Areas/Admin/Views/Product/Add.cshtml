@@ -1,0 +1,49 @@
+﻿
+@model ProductVM
+@{
+    ViewBag.Title = "Ürün Ekle";
+}
+
+<h2>Ürün EKle</h2>
+
+
+
+
+@using (Html.BeginForm("Add","Product",FormMethod.Post,new {area="Admin", enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name , new { @class="form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Price)
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.UnitsInStock)
+        @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.PicturePath)
+        <input type="file" name="image" class="form-control"/>
+        
+    </div>
+
+    <div class="form-group">
+        <label>Alt Kategori Seçiniz : </label>
+        <select class="form-control" name="SubCategoryID">
+            @foreach (var item in Model.AltKategoriler)
+            {
+                <option value="@item.ID">@item.Name</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Kaydet" class="btn btn-success" />
+}
+
+
+

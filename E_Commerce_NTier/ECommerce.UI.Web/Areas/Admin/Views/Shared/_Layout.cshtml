@@ -75,6 +75,16 @@
     </div>
 
     <div class="container body-content">
+        @if (TempData["OnayMesaji"] != null)
+        {
+            <div class="alert alert-success">@TempData["OnayMesaji"]</div>
+        }
+
+        @if (TempData["HataMesaji"] != null)
+        {
+            <div class="alert alert-danger">@TempData["HataMesaji"]</div>
+        }
+
         @RenderBody()
         <hr />
         <footer>
@@ -84,5 +94,6 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scriptlerim",false)
 </body>
 </html>

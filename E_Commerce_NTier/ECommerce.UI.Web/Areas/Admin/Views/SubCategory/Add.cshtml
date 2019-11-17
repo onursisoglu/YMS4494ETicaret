@@ -1,0 +1,34 @@
+﻿@model SubCategory
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Alt Kategori Ekleme</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.Name)
+        @Html.TextBoxFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(x => x.Description)
+        @Html.TextBoxFor(x => x.Description)
+    </div>
+
+    <div class="form-group">
+      <label>Ana Kategori Seçiniz : </label>
+      <select name="MainCategoryID">
+          @foreach (var item in ViewBag.Kategoriler)
+          {
+              <option value="@item.ID">@item.Name</option>
+          }
+      </select>
+    </div>
+
+    <input type="submit" value="Kaydet" class="btn btn-success"/>
+}
+
